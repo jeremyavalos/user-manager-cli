@@ -1,6 +1,7 @@
-from funciones import *
+import funciones
+
 #programa
- 
+
 while True:
     print("\n--- MENU ---")
     print("1. crear usaurio")
@@ -13,24 +14,31 @@ while True:
     opcion = input("Selecciona una opción: ")
 
     if opcion == "1":
-        nombre = input("nombre: ") 
+       nombre = input("nombre: ") 
+       while True:
         edad = input("edad: ")
-        guardar_datos(nombre, edad)
-
+        
+        if edad.isdigit():
+          break
+        else:
+          print("Por favor, ingresa un número válido.")
+       funciones.guardar_datos(nombre, edad)
+    
     elif opcion == "2":
-        ver_usuarios()
+       funciones.ver_usuarios()
 
     elif opcion == "3":
-        buscar_usuario()
-     
+       funciones.buscar_usuario()
+    
     elif opcion == "4":
-        eliminar_usuario()
+       funciones.eliminar_usuario()
 
     elif opcion == "5":
-        editar_usuario()
+       funciones.editar_usuario()
 
     elif opcion == "6":
-        print("¡Hasta luego!")
-        break
+      print("¡Hasta luego!")
+      break
+
     else:
-        print("Opción no válida. Por favor, selecciona una opción del menú.")
+      print("Opción no válida. Por favor, selecciona una opción del menú.")
